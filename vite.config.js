@@ -25,7 +25,7 @@ export default defineConfig({
   build: {
     manifest: true,
     rollupOptions: {
-      input: "src/main/resources/static/css/application.css",/*{
+      input: "/static/css/application.css",/*{
         main: "./src/main/resources/static/css/application.css",
       },*/
       // output: {
@@ -44,7 +44,7 @@ export default defineConfig({
       }
 */
     },
-    outDir: path.join(__dirname,`./target/classes/assets`),
+    outDir: path.join(__dirname,`./target/classes/static`),
     copyPublicDir: false,
     emptyOutDir: true
   },

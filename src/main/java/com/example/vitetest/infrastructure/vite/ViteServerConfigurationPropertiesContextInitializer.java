@@ -1,6 +1,6 @@
 package com.example.vitetest.infrastructure.vite;
 
-import static com.example.vitetest.infrastructure.vite.ViteServerConfigurationProperties.PREFIX;
+import static com.example.vitetest.infrastructure.vite.ViteDevServerConfigurationProperties.PREFIX;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;

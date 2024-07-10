@@ -6,17 +6,24 @@ import org.thymeleaf.processor.IProcessor;
 
 public class ViteDialect extends AbstractProcessorDialect {
 
-  private final ViteServerConfigurationProperties serverProperties;
+  private final ViteConfigurationProperties properties;
+  private final ViteDevServerConfigurationProperties serverProperties;
+  private final ViteManifestReader manifestReader;
 
-  protected ViteDialect(ViteServerConfigurationProperties serverProperties) {
+  public ViteDialect(
+      ViteConfigurationProperties properties,
+      ViteDevServerConfigurationProperties serverProperties,
+      ViteManifestReader manifestReader) {
     super("Vite Dialect", "vite", 1000);
+    this.properties = properties;
     this.serverProperties = serverProperties;
+    this.manifestReader = manifestReader;
   }
 
   @Override
   public Set<IProcessor> getProcessors(String dialectPrefix) {
     return Set.of(
-        new ViteTagProcessor(dialectPrefix, serverProperties)
+        new ViteTagProcessor(dialectPrefix, properties, serverProperties, manifestReader)
     );
   }
 }
