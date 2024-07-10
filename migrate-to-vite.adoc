@@ -1,0 +1,26 @@
+= Migrate to vite
+
+. Run:
++
+[source,bash]
+----
+npm create vite@latest . -- --template=vanilla
+----
+
+TODO: Avoid .gitignore override
+
+TODO: figure out how to avoid that command showing the warning.
+
+. Move `counter.js` and `main.js` to `src/main/resources/static/js`
+. Delete `style.css`
+. Delete `main.js`
+. Delete `javascript.svg`
+. Delete `index.html`
+. Add this line to the `main.html` layout template:
++
+[source,html]
+----
+<script type="module" src="/main.js"></script>
+----
+. Run `npm install -D tailwindcss postcss autoprefixer`
+
