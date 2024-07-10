@@ -24,3 +24,7 @@ TODO: figure out how to avoid that command showing the warning.
 ----
 . Run `npm install -D tailwindcss postcss autoprefixer`
 
+
+== Info
+
+* https://dev.to/tylerlwsmith/build-a-vite-5-backend-integration-with-flask-jch
