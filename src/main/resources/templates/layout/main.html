@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html th:lang="|${#locale.language}-${#locale.country}|"
       xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:vite="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title></title>
 <!--    <link rel="stylesheet" th:href="@{/css/application.css}">-->
-    <vite:vite entrypoint="/css/application.css"></vite:vite>
+    <vite:client></vite:client>
+    <link rel="stylesheet" vite:href="@{/css/application.css}">
 </head>
 <body>
 <main layout:fragment="content">
