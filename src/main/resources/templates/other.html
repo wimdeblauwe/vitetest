@@ -5,14 +5,10 @@
       layout:decorate="~{layout/main}" xmlns:vite="http://www.w3.org/1999/xhtml">
 <body>
 <div layout:fragment="content">
-    <!-- Add content here -->
-    <div class="text-xl text-red-500">Welcome to your Spring Boot Thymeleaf project using Vite!</div>
-    <div>See <code>HELP.md</code> for instructions on how to get started.</div>
-    <button id="counter" type="button">Count</button>
-    <a href="/other">Go to other side</a>
+    Welcome to the other side.
 </div>
 <th:block layout:fragment="script-content">
-    <script type="module" vite:src="@{/js/index-page.js}"></script>
+<!--    <script type="module" vite:src="@{/js/index-page.js}"></script>-->
     <script type="module" vite:src="@{/js/hello.ts}"></script>
     <!-- Add additional scripts there that are only needed for this page (Application wide scripts should be added in layout/main.html) -->
 </th:block>

@@ -24,6 +24,9 @@ TODO: figure out how to avoid that command showing the warning.
 ----
 . Run `npm install -D tailwindcss postcss autoprefixer`
 
+TypeScript works out of the box.
+
+When adding an `.scss` file, then you get a nice error message in the browser to install sass via `npm install -D sass`
 
 == Info
 
