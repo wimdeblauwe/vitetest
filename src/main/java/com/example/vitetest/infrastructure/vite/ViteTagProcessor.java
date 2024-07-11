@@ -18,16 +18,16 @@ public class ViteTagProcessor extends AbstractElementModelProcessor {
 
   private final ViteConfigurationProperties properties;
   private final ViteDevServerConfigurationProperties devServerProperties;
-  private final ViteManifestReader manifestReader;
+  private final ViteLinkResolver linkResolver;
 
   public ViteTagProcessor(String dialectPrefix,
       ViteConfigurationProperties properties,
       ViteDevServerConfigurationProperties devServerProperties,
-      ViteManifestReader manifestReader) {
+      ViteLinkResolver linkResolver) {
     super(TemplateMode.HTML, dialectPrefix, "vite", true, null, false, 10_000);
     this.properties = properties;
     this.devServerProperties = devServerProperties;
-    this.manifestReader = manifestReader;
+    this.linkResolver = linkResolver;
   }
 
   @Override
@@ -55,7 +55,7 @@ public class ViteTagProcessor extends AbstractElementModelProcessor {
           model.replace(model.size() - 1, modelFactory.createCloseElementTag("script"));
         }
         IStandaloneElementTag linkTag = modelFactory.createStandaloneElementTag("link",
-            Map.of("rel", "stylesheet", "href", resolveStaticResource(entrypointValue)),
+            Map.of("rel", "stylesheet", "href", linkResolver.resolveResource(entrypointValue)),
             AttributeValueQuotes.DOUBLE, false, false);
         if( properties.mode() == Mode.DEV) {
           model.add(linkTag);
@@ -69,20 +69,4 @@ public class ViteTagProcessor extends AbstractElementModelProcessor {
     }
   }
 
-  private String resolveStaticResource(String entrypointValue) {
-    if (properties.mode() == Mode.DEV) {
-      return devServerProperties.baseUrl() + "/"
-             + prependWithStatic(entrypointValue);
-    } else {
-      return manifestReader.getBundledPath(prependWithStatic(entrypointValue));
-    }
-  }
-
-  private String prependWithStatic(String entrypointValue) {
-    if (entrypointValue.startsWith("/")) {
-      return "static" + entrypointValue;
-    } else {
-      return "static/" + entrypointValue;
-    }
-  }
 }

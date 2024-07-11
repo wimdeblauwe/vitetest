@@ -25,7 +25,7 @@ export default defineConfig({
   build: {
     manifest: true,
     rollupOptions: {
-      input: "/static/css/application.css",/*{
+      input: ["/static/css/application.css", "/static/js/index-page.js"],/*{
         main: "./src/main/resources/static/css/application.css",
       },*/
       // output: {
