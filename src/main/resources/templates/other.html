@@ -6,9 +6,14 @@
 <body>
 <div layout:fragment="content">
     Welcome to the other side.
+
+    <h1>Vite Chunking Example</h1>
+    <button id="load-module1">Load Module 1</button>
+    <button id="load-module2">Load Module 2</button>
+    <div id="output"></div>
 </div>
 <th:block layout:fragment="script-content">
-<!--    <script type="module" vite:src="@{/js/index-page.js}"></script>-->
+    <script type="module" vite:src="@{/js/test-module-loader.js}"></script>
     <script type="module" vite:src="@{/js/hello.ts}"></script>
     <!-- Add additional scripts there that are only needed for this page (Application wide scripts should be added in layout/main.html) -->
 </th:block>

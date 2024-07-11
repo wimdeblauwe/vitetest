@@ -1,0 +1,1 @@
+export const message1 = 'This is module 1'

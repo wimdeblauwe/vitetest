@@ -13,7 +13,9 @@ export default defineConfig({
         "/static/css/application.css",
         "/static/css/test.scss",
         "/static/js/index-page.js",
-        "/static/js/hello.ts"],
+        "/static/js/hello.ts",
+        "/static/js/test-module-loader.js"
+      ],
     },
     outDir: path.join(__dirname, `./target/classes/static`),
     copyPublicDir: false,
