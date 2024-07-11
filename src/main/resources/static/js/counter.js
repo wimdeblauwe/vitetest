@@ -1,5 +1,4 @@
 export function setupCounter(element) {
-  console.log("setupCounter with element: " + element);
   let counter = 0
   const setCounter = (count) => {
     counter = count

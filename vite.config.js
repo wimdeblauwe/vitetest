@@ -9,7 +9,7 @@ export default defineConfig({
   build: {
     manifest: true,
     rollupOptions: {
-      input: ["/static/css/application.css", "/static/js/index-page.js"],
+      input: ["/static/css/application.css", "/static/js/index-page.js", "/static/js/hello.ts"],
     },
     outDir: path.join(__dirname, `./target/classes/static`),
     copyPublicDir: false,
