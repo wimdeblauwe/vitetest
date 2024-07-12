@@ -5,3 +5,12 @@
 div {
   margin-top: 5rem;
 }
+
+body {
+  margin: 2rem;
+}
+
+#app {
+  padding: 2rem;
+  border: 1px solid #44aa44;
+}

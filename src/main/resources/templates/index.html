@@ -3,6 +3,12 @@
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{layout/main}" xmlns:vite="http://www.w3.org/1999/xhtml">
+<head>
+  <vite:vite>
+    <vite:entry value="/js/index-page.js"></vite:entry>
+    <vite:entry value="/js/hello.ts"></vite:entry>
+  </vite:vite>
+</head>
 <body>
 <div layout:fragment="content">
     <!-- Add content here -->
@@ -10,11 +16,14 @@
     <div>See <code>HELP.md</code> for instructions on how to get started.</div>
     <button id="counter" type="button">Count</button>
     <a href="/other">Go to other side</a>
+
+  <div id="hello-world-vue"></div>
+
+  <div id="app">
+    <hello-world msg="Vue + Thymeleaf"></hello-world>
+  </div>
 </div>
 <th:block layout:fragment="script-content">
-    <script type="module" vite:src="@{/js/index-page.js}"></script>
-    <script type="module" vite:src="@{/js/hello.ts}"></script>
-    <!-- Add additional scripts there that are only needed for this page (Application wide scripts should be added in layout/main.html) -->
 </th:block>
 </body>
 </html>

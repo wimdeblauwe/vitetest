@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.type.MapType;
 import jakarta.annotation.PostConstruct;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
 import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -42,8 +43,11 @@ public class ViteManifestReader {
     return entry != null ? entry.file() : null;
   }
 
+  public ManifestEntry getManifestEntry(String resource) {
+    return manifest.get(resource);
+  }
 
-  record ManifestEntry(String file, String src, boolean isEntry) {
+  public record ManifestEntry(String file, String src, boolean isEntry, List<String> css, List<String> imports) {
 
   }
 }

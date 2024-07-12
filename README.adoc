@@ -42,13 +42,15 @@ Example:
 ----
 <head>
     <vite:client></vite:client>
-    <link rel="stylesheet" vite:href="@{/css/application.css}">
-    <link rel="stylesheet" vite:href="@{/css/test.scss}">
+    <vite:vite>
+      <vite:entry value="/css/application.css"></vite:entry>
+      <vite:entry value="/css/test.scss"></vite:entry>
+    </vite:vite>
 </head>
 ----
 
 * `<vite:client>` renders the HMR client of Vite when running in development mode.
-* `vite:href` is used to reference the asset itself. The attribute processor will convert this into a link to either the Vite development server, or to the bundled asset.
+* `<vite:vite>` is used to reference the assets themselves. The attribute processor will convert each entry into a link to either the Vite development server, or to the bundled asset. Assets that have linked CSS or components will have all needed extra links added as well.
 
 == Future
 

@@ -23,7 +23,8 @@ public class ViteDialect extends AbstractProcessorDialect {
   @Override
   public Set<IProcessor> getProcessors(String dialectPrefix) {
     return Set.of(
-        new ViteTagProcessor(dialectPrefix, properties, serverProperties, linkResolver),
+        new ViteClientTagProcessor(dialectPrefix, properties, serverProperties),
+        new ViteTagProcessor(dialectPrefix, linkResolver),
         new ViteAttributeProcessor(dialectPrefix, "src", linkResolver),
         new ViteAttributeProcessor(dialectPrefix, "href", linkResolver)
     );

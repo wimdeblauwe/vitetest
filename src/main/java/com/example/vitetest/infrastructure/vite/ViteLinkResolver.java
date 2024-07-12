@@ -1,6 +1,8 @@
 package com.example.vitetest.infrastructure.vite;
 
 import com.example.vitetest.infrastructure.vite.ViteConfigurationProperties.Mode;
+import com.example.vitetest.infrastructure.vite.ViteManifestReader.ManifestEntry;
+import java.util.Map;
 
 public class ViteLinkResolver {
 
@@ -21,8 +23,22 @@ public class ViteLinkResolver {
       return devServerProperties.baseUrl() + "/"
              + prependWithStatic(resource);
     } else {
-      return manifestReader.getBundledPath(prependWithStatic(resource));
+      String bundledPath = manifestReader.getBundledPath(prependWithStatic(resource));
+//      if( bundledPath == null ) {
+//        // imported resources don't have the /static prefix
+//        bundledPath = manifestReader.getBundledPath(resource);
+//      }
+      return bundledPath;
     }
+  }
+
+  public ManifestEntry getManifestEntry(String resource) {
+    ManifestEntry manifestEntry = manifestReader.getManifestEntry(prependWithStatic(resource));
+    if( manifestEntry == null ) {
+      // imported resources don't have the /static prefix
+      manifestEntry = manifestReader.getManifestEntry(resource);
+    }
+    return manifestEntry;
   }
 
   private String prependWithStatic(String resource) {
